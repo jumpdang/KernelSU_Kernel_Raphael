@@ -13,11 +13,11 @@ jobs:
       KernelSU_Dir: /home/runner/work/KernelSU
       Setup_Dir: /home/runner/work/Setup_Dir
     steps:
-      - name: Download KernelSU from 'SoDebug/KernelSU'
+      - name: Download KernelSU from 'KernelSU'
         id: get-kernelsu
         run: |
           mkdir $KernelSU_Dir
-          git clone https://github.com/SoDebug/KernelSU.git $KernelSU_Dir
+          git clone https://github.com/tiann/KernelSU.git $KernelSU_Dir
           
       - name: Get KernelSU id
         id: get-kernelsu-id
@@ -25,11 +25,11 @@ jobs:
           cd $KernelSU_Dir
           echo "kernelsu_id=$(git show -s --date=short --format="%h")" >> $GITHUB_ENV
           
-      - name: Download Patch form 'SoDebug/KernelSU'
+      - name: Download Patch form 'KernelSU'
         id: get-patch
         run: |
           mkdir $Setup_Dir 
-          git clone -b setup https://github.com/SoDebug/KernelSU.git $Setup_Dir
+          git clone -b setup https://github.com/tiann/KernelSU.git $Setup_Dir
           
       - name: Get Patch id
         id: get-patch-id
@@ -111,7 +111,7 @@ jobs:
       - name: Clone Kernel Tree
         if: ${{ env.test_patch != 'true' }}
         run: |
-          git clone https://github.com/SoDebug/kernel_xiaomi_raphael-ex.git -b tiramisu $CheckOut_DIR
+          git clone https://github.com/jumpdang/kernel_xiaomi_raphael.git $CheckOut_DIR
 
       - name: Download KernelSU_Patched
         uses: actions/download-artifact@v3
@@ -138,7 +138,7 @@ jobs:
           git clone https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86 --depth=1 -b master ~/clang
           git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 -b android-10.0.0_r47 --depth=1 --single-branch --no-tags ~/aarch64-linux-android-4.9
           git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9 -b android-10.0.0_r47 --depth=1 --single-branch --no-tags ~/arm-linux-androideabi-4.9
-          git clone https://github.com/SoDebug/AnyKernel.git ${{ env.AnyKernel }}          
+          git clone https://github.com/SOVIET-ANDROID/AnyKernel3.git ${{ env.AnyKernel }}          
 
       - name: Compiling Kernel
         if: ${{ env.test_patch != 'true' }}      
@@ -197,7 +197,7 @@ jobs:
       - name: Clone Kernel Tree
         if: ${{ env.test_patch != 'true' }}
         run: |
-          git clone -b 13.0_0516 https://github.com/SoDebug/kernel_xiaomi_raphael.git $CheckOut_DIR
+          git clone https://github.com/jumpdang/kernel_xiaomi_raphael.git $CheckOut_DIR
 
       - name: Download KernelSU_Patched
         uses: actions/download-artifact@v3
@@ -224,7 +224,7 @@ jobs:
           git clone https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86 --depth=1 -b master ~/clang
           git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 -b android-10.0.0_r47 --depth=1 --single-branch --no-tags ~/aarch64-linux-android-4.9
           git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9 -b android-10.0.0_r47 --depth=1 --single-branch --no-tags ~/arm-linux-androideabi-4.9
-          git clone https://github.com/SoDebug/AnyKernel.git ${{ env.AnyKernel }}    
+          git clone https://github.com/SOVIET-ANDROID/AnyKernel3.git ${{ env.AnyKernel }}    
           
       - name: Compiling Kernel
         if: ${{ env.test_patch != 'true' }}      
@@ -283,7 +283,7 @@ jobs:
       - name: Clone Kernel Tree
         if: ${{ env.test_patch != 'true' }}
         run: |
-          git clone -b beta https://github.com/SoDebug/kernel_xiaomi_raphael.git $CheckOut_DIR
+          git clone https://github.com/jumpdang/kernel_xiaomi_raphael.git $CheckOut_DIR
 
       - name: Download KernelSU_Patched
         uses: actions/download-artifact@v3
@@ -310,7 +310,7 @@ jobs:
           git clone https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86 --depth=1 -b master ~/clang
           git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 -b android-10.0.0_r47 --depth=1 --single-branch --no-tags ~/aarch64-linux-android-4.9
           git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9 -b android-10.0.0_r47 --depth=1 --single-branch --no-tags ~/arm-linux-androideabi-4.9
-          git clone https://github.com/SoDebug/AnyKernel.git ${{ env.AnyKernel }}     
+          git clone https://github.com/SOVIET-ANDROID/AnyKernel3.git ${{ env.AnyKernel }}     
 
       - name: Compiling Kernel
         if: ${{ env.test_patch != 'true' }}      
