@@ -105,7 +105,7 @@ jobs:
         if: ${{ env.test_patch != 'true' }}
         run: |
           sudo apt update -y
-          sudo apt-get install -y zip flex bison libncurses-dev gawk  libiberty-dev autoconf kmod bc build-essential gcc libc6 curl libstdc++6 git wget libssl-dev cpio p7zip-full ccache
+          sudo apt-get install -y zip lld flex bison libncurses-dev gawk  libiberty-dev autoconf kmod bc build-essential gcc libc6 curl libstdc++6 git wget libssl-dev cpio p7zip-full ccache
           sudo apt clean
           
       - name: Clone Kernel Tree
