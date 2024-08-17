@@ -29,7 +29,7 @@ jobs:
         id: get-patch
         run: |
           mkdir $Setup_Dir 
-          git clone -b setup https://github.com/tiann/KernelSU.git $Setup_Dir
+          git clone https://github.com/tiann/KernelSU.git $Setup_Dir
           
       - name: Get Patch id
         id: get-patch-id
